@@ -1,0 +1,19 @@
+*.iml
+.gradle/
+.kotlin/
+build/
+app/build/
+local.properties
+.idea/
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# 本地开发用：设备端编译脚本、开发期截图与诊断输出
+/g
+/screenshots/

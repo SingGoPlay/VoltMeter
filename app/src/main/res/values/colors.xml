@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="widget_text">#FF1A1A1A</color>
+    <color name="widget_text_dim">#8A000000</color>
+    <color name="widget_charging">#FF00A85D</color>
+    <color name="ic_launcher_background">#FF3482FF</color>
+</resources>
