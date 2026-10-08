@@ -20,8 +20,16 @@ jobs:
           distribution: temurin
           java-version: '21'
 
+      # 见 build.yml 里的说明：不用 setup-android，直接用 runner 自带的 SDK
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+        run: |
+          SDK="${ANDROID_HOME:-/usr/local/lib/android/sdk}"
+          echo "ANDROID_HOME=$SDK" >> "$GITHUB_ENV"
+          echo "ANDROID_SDK_ROOT=$SDK" >> "$GITHUB_ENV"
+          SM="$(ls -d "$SDK"/cmdline-tools/*/bin/sdkmanager 2>/dev/null | tail -1)"
+          echo "using sdkmanager: $SM"
+          yes | "$SM" --licenses > /dev/null 2>&1 || true
+          "$SM" "platforms;android-37.0" "build-tools;36.1.0"
 
       - name: Build release APK
         run: |
